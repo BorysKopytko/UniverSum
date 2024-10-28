@@ -1,0 +1,6 @@
+@UniverSum.API_HostAddress = http://localhost:5134
+
+GET {{UniverSum.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
