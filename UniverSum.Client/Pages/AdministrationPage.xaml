@@ -4,9 +4,6 @@
              x:Class="UniverSum.Client.Pages.AdministrationPage"
              Title="AdministrationPage">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+
     </VerticalStackLayout>
 </ContentPage>

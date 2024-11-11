@@ -4,9 +4,6 @@
              x:Class="UniverSum.Client.Pages.ChatbotPage"
              Title="ChatbotPage">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+
     </VerticalStackLayout>
 </ContentPage>
