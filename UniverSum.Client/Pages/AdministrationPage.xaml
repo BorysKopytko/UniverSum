@@ -3,7 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="UniverSum.Client.Pages.AdministrationPage"
              Title="AdministrationPage">
-    <VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout>
+            <CollectionView>
 
-    </VerticalStackLayout>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
