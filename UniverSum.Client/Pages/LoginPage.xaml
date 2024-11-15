@@ -2,10 +2,30 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="UniverSum.Client.Pages.LoginPage"
-             Title="LoginPage">
+             Title="Вхід">
     <ScrollView>
-        <VerticalStackLayout>
-
-        </VerticalStackLayout>
+        <Border>
+            <VerticalStackLayout>
+                <Label Text="Електронна пошта"/>
+                <Entry x:Name="EmailEntry"
+                       Placeholder="Введіть свою електронну пошту"
+                       ClearButtonVisibility="WhileEditing"
+                       Keyboard="Email"
+                       ReturnType="Done"
+                       IsSpellCheckEnabled="False"
+                       IsTextPredictionEnabled="False"/>
+                <Label Text="Пароль"/>
+                <Entry x:Name="PasswordEntry"
+                       Placeholder="Введіть свій пароль"
+                       ClearButtonVisibility="WhileEditing"
+                       IsPassword="True"
+                       ReturnType="Done"
+                       IsSpellCheckEnabled="False"
+                       IsTextPredictionEnabled="False"/>
+                <Button Text="Увійти"/>
+                <Label Text="Не маєте облікового запису?"/>
+                <Button Text="Зареєструватись"/>
+            </VerticalStackLayout>
+        </Border>
     </ScrollView>
 </ContentPage>

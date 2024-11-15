@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UniverSum.Client.Pages.RegistrationPage"
+             Title="Реєстрація">
+    <ScrollView>
+        <Border>
+            <VerticalStackLayout>
+                <Label Text="Електронна пошта"/>
+                <Entry x:Name="EmailEntry"
+                   Placeholder="Введіть свою електронну пошту"
+                   ClearButtonVisibility="WhileEditing"
+                   Keyboard="Email"
+                   ReturnType="Next"
+                   IsSpellCheckEnabled="False"
+                   IsTextPredictionEnabled="False"/>
+                <Label Text="Пароль"/>
+                <Entry x:Name="PasswordEntry"
+                   Placeholder="Введіть свій пароль"
+                   ClearButtonVisibility="WhileEditing"
+                   IsPassword="True"
+                   ReturnType="Next"
+                   IsSpellCheckEnabled="False"
+                   IsTextPredictionEnabled="False"/>
+                <Label Text="Прізвище"/>
+                <Entry x:Name="LastNameEntry"
+                       Placeholder="Введіть своє прізвище"
+                       ClearButtonVisibility="WhileEditing"
+                       Keyboard="Text"
+                       ReturnType="Next"/>
+                <Label Text="Ім'я"/>
+                <Entry x:Name="FirstNameEntry"
+                       Placeholder="Введіть своє ім'я"
+                       ClearButtonVisibility="WhileEditing"
+                       Keyboard="Text"
+                       ReturnType="Next"/>
+                <Label Text="По-батькові"/>
+                <Entry x:Name="MiddleNameEntry"
+                       Placeholder="Введіть своє по-батькові"
+                       ClearButtonVisibility="WhileEditing"
+                       Keyboard="Text"
+                       ReturnType="Next"/>
+                <Label Text="Факультет"/>
+                <Picker Title="Оберіть свій факультет">
+                    <Picker.Items>
+                        <x:String>Прикладної математики та інформатики</x:String>
+                    </Picker.Items>
+                </Picker>
+                <Label Text="Освітній рівень"/>
+                <Picker Title="Оберіть свій освітній рівень">
+                    <Picker.Items>
+                        <x:String>Бакалавр</x:String>
+                        <x:String>Магістр</x:String>
+                    </Picker.Items>
+                </Picker>
+                <Label Text="Курс"/>
+                <Picker Title="Оберіть свій курс">
+                    <Picker.Items>
+                        <x:String>1</x:String>
+                        <x:String>2</x:String>
+                        <x:String>3</x:String>
+                        <x:String>4</x:String>
+                    </Picker.Items>
+                </Picker>
+                <Label Text="Потік"/>
+                <Picker Title="Оберіть свій потік">
+                    <Picker.Items>
+                        <x:String>1</x:String>
+                        <x:String>2</x:String>
+                    </Picker.Items>
+                </Picker>
+                <Label Text="Група"/>
+                <Picker Title="Оберіть свою групу">
+                    <Picker.Items>
+                        <x:String>ПМІ-41</x:String>
+                        <x:String>ПМІ-42</x:String>
+                    </Picker.Items>
+                </Picker>
+                <Button Text="Зареєструватись"/>
+            </VerticalStackLayout>
+        </Border>
+    </ScrollView>
+</ContentPage>
