@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UniverSum.Client.Pages.SchedulesPage"
+             xmlns:viewModels="clr-namespace:UniverSum.Client.ViewModels" 
+             Title="Розклад">
+    <ContentPage.BindingContext>
+        <viewModels:SchedulesViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="LessonCardStyle" TargetType="Frame">
+                <Setter Property="Padding" Value="10" />
+                <Setter Property="Margin" Value="5" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="HasShadow" Value="True" />
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightCardColor}, Dark={StaticResource DarkCardColor}}" />
+            </Style>
+            <Style x:Key="TextStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LightTextColor}, Dark={StaticResource DarkTextColor}}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <Border StrokeThickness="1" Stroke="{AppThemeBinding Light={StaticResource LightBorderColor}, Dark={StaticResource DarkBorderColor}}" Margin="10">
+            <VerticalStackLayout Spacing="10" Padding="10">
+                <CollectionView ItemsSource="{Binding Items}" SelectionMode="Single">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Style="{StaticResource LessonCardStyle}">
+                                <VerticalStackLayout Spacing="5">
+                                    <HorizontalStackLayout Spacing="10">
+                                        <Label Text="{Binding RecurringLesson.LessonTimeSpanId}" Style="{StaticResource TextStyle}" FontAttributes="Bold" />
+                                        <Label Text="{Binding RecurringLesson.LessonTimeSpanId}" Style="{StaticResource TextStyle}" />
+                                    </HorizontalStackLayout>
+                                    <Label Text="{Binding RecurringLesson.Course.Title}" Style="{StaticResource TextStyle}" FontAttributes="Bold" />
+                                    <Label Text="{Binding RecurringLesson.LessonType}" Style="{StaticResource TextStyle}" />
+                                    <Label Text="{Binding RecurringLesson.Members}" Style="{StaticResource TextStyle}" />
+                                    <Label Text="Аудиторія: " Style="{StaticResource TextStyle}">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding RecurringLesson.Classroom}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <HorizontalStackLayout Spacing="15">
+                                        <BoxView Color="{Binding Messages, Converter={StaticResource BoolToColorConverter}}" WidthRequest="10" HeightRequest="10" CornerRadius="5" />
+                                        <Label Text="Примітки викладачів" Style="{StaticResource TextStyle}"/>
+
+                                        <BoxView Color="{Binding Messages, Converter={StaticResource BoolToColorConverter}}" WidthRequest="10" HeightRequest="10" CornerRadius="5" />
+                                        <Label Text="Примітки студентів" Style="{StaticResource TextStyle}" />
+                                    </HorizontalStackLayout>
+                                    <Button Text="Детальніше" Command="{Binding DetailsCommand}" CommandParameter="{Binding Id}"/>
+                                </VerticalStackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </Border>
+    </ScrollView>
+</ContentPage>

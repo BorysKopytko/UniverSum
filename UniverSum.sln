@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35431.28
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniverSum.API", "UniverSum.API\UniverSum.API.csproj", "{59A08D2B-1301-41AA-9F2E-1F3A83CBB0D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniverSum.Client", "UniverSum.Client\UniverSum.Client.csproj", "{7C4F0805-F3F1-4B24-B6B8-B3BDD8836C7A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{59A08D2B-1301-41AA-9F2E-1F3A83CBB0D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59A08D2B-1301-41AA-9F2E-1F3A83CBB0D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59A08D2B-1301-41AA-9F2E-1F3A83CBB0D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59A08D2B-1301-41AA-9F2E-1F3A83CBB0D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C4F0805-F3F1-4B24-B6B8-B3BDD8836C7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C4F0805-F3F1-4B24-B6B8-B3BDD8836C7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C4F0805-F3F1-4B24-B6B8-B3BDD8836C7A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7C4F0805-F3F1-4B24-B6B8-B3BDD8836C7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C4F0805-F3F1-4B24-B6B8-B3BDD8836C7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C4F0805-F3F1-4B24-B6B8-B3BDD8836C7A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {73E8FA7E-AAED-4AAB-B6E4-D1CBC9D4D39C}
+	EndGlobalSection
+EndGlobal

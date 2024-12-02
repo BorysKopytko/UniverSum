@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UniverSum.Client.Pages.ConversationDetailPage"
+             xmlns:viewModels="clr-namespace:UniverSum.Client.ViewModels"
+             Title="Деталі розмови">
+    <ContentPage.BindingContext>
+        <viewModels:ConversationDetailViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="LightTextColor">#000000</Color>
+            <Color x:Key="LightBorderColor">#D3D3D3</Color>
+            <Color x:Key="LightBackgroundColor">#FFFFFF</Color>
+            <Color x:Key="DarkTextColor">#FFFFFF</Color>
+            <Color x:Key="DarkBorderColor">#444444</Color>
+            <Color x:Key="DarkBackgroundColor">#2C2C2C</Color>
+            <Style x:Key="MessageTextStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="TextColor" Value="{DynamicResource LightTextColor}" />
+            </Style>
+            <Style x:Key="MessageTimeStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="TextColor" Value="#7D7D7D" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ScrollView>
+        <StackLayout Padding="10">
+            <Label Text="{Binding Item.Title}" FontSize="20" FontAttributes="Bold" />
+            <CollectionView ItemsSource="{Binding Item.Messages}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="{DynamicResource LightBorderColor}"
+                               BackgroundColor="{DynamicResource LightBackgroundColor}"
+                               CornerRadius="8" Padding="10" Margin="10">
+                            <StackLayout>
+                                <Label Text="{Binding Item.Sender}" FontSize="16" FontAttributes="Bold" />
+                                <Label Text="{Binding Item.Text}" Style="{DynamicResource MessageTextStyle}" />
+                                <Label Text="{Binding Item.SendingDateTime}" Style="{DynamicResource MessageTimeStyle}" />
+                                <StackLayout>
+                                    <Label Text="References:" FontSize="14" FontAttributes="Bold" />
+                                    <StackLayout Padding="5">
+                                        <Label Text="{Binding Item.Conversation}" TextColor="Blue" FontSize="12" IsVisible="{Binding HasRelatedCourse}" />
+                                        <Label Text="{Binding Item.Task}" TextColor="Blue" FontSize="12" IsVisible="{Binding HasRelatedAssignment}" />
+                                        <Label Text="{Binding Item.IndividualLesson}" TextColor="Blue" FontSize="12" IsVisible="{Binding HasRelatedLesson}" />
+                                        <Label Text="{Binding Item.Id}" TextColor="Blue" FontSize="12" IsVisible="{Binding HasRelatedLink}" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
+    

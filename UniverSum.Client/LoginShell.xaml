@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="UniverSum.Client.LoginShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:UniverSum.Client"
+    xmlns:pages="clr-namespace:UniverSum.Client.Pages"
+    xmlns:mi="http://www.aathifmahir.com/dotnet/2022/maui/icons"
+    Shell.FlyoutBehavior="Flyout"
+    Title="Львівський національний університет імені Івана Франка - UniverSum">
+    <Shell.FlyoutHeader>
+        <Image 
+            Source="university_logo.png" />
+    </Shell.FlyoutHeader>
+    <ShellContent 
+        Title="Вхід"
+        Icon="{mi:Fluent Icon=PersonNote24}"
+        ContentTemplate="{DataTemplate pages:LoginPage}" />
+    <Shell.FlyoutFooter>
+        <Label 
+            Text="© 2024 Борис Копитко" />
+    </Shell.FlyoutFooter>
+</Shell>

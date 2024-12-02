@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UniverSum.Client.Pages.TasksPage"
+             xmlns:viewModels="clr-namespace:UniverSum.Client.ViewModels"
+             Title="Завдання">
+    <ContentPage.BindingContext>
+        <viewModels:TasksViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <Style x:Key="ColumnFrameStyle" TargetType="Frame">
+            <Setter Property="BorderColor" Value="Gray" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="HasShadow" Value="False" />
+            <Setter Property="Margin" Value="5" />
+        </Style>
+        <Style x:Key="TaskFrameStyle" TargetType="Frame">
+            <Setter Property="BorderColor" Value="Gray" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="Margin" Value="0,10,0,10" />
+        </Style>
+        <Style x:Key="ColumnHeaderLabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="Large" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="FontAttributes" Value="Bold" />
+        </Style>
+        <Style x:Key="TaskNameLabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="Medium" />
+        </Style>
+        <Style x:Key="TaskInfoLabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="Small" />
+        </Style>
+    </ContentPage.Resources>
+    <Grid Padding="10"
+          RowDefinitions="Auto"
+          ColumnDefinitions="*,*,*">
+        <Frame Style="{StaticResource ColumnFrameStyle}" Grid.Column="0">
+            <StackLayout x:Name="ToDoColumn" Padding="10">
+                <Label Text="Не почато" Style="{StaticResource ColumnHeaderLabelStyle}" />
+                <CollectionView ItemsSource="{Binding Items}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Style="{StaticResource TaskFrameStyle}">
+                                <StackLayout>
+                                    <Label Text="{Binding Title}" Style="{StaticResource TaskNameLabelStyle}" />
+                                    <Label Text="{Binding Course}" Style="{StaticResource TaskInfoLabelStyle}" />
+                                    <Label Text="{Binding EndDateTime, StringFormat='До: {0:yyyy-MM-dd}'}" 
+                                           TextColor="DarkRed" 
+                                           Style="{StaticResource TaskInfoLabelStyle}" />
+                                    <Label Text="{Binding Priority}" 
+                                           TextColor="DarkOrange" 
+                                           Style="{StaticResource TaskInfoLabelStyle}" />
+                                </StackLayout>
+                                <Frame.GestureRecognizers>
+                                    <DragGestureRecognizer DragStarting="OnDragStarting" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </Frame>
+        <Frame Style="{StaticResource ColumnFrameStyle}" Grid.Column="1">
+            <StackLayout x:Name="InProgressColumn" Padding="10">
+                <Label Text="У роботі" Style="{StaticResource ColumnHeaderLabelStyle}" />
+                <CollectionView ItemsSource="{Binding Items}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Style="{StaticResource TaskFrameStyle}">
+                                <StackLayout>
+                                    <Label Text="{Binding Title}" Style="{StaticResource TaskNameLabelStyle}" />
+                                    <Label Text="{Binding Course}" Style="{StaticResource TaskInfoLabelStyle}" />
+                                    <Label Text="{Binding EndDateTime, StringFormat='До: {0:yyyy-MM-dd}'}" 
+                                           TextColor="DarkRed" 
+                                           Style="{StaticResource TaskInfoLabelStyle}" />
+                                    <Label Text="{Binding Priority}" 
+                                           TextColor="DarkOrange" 
+                                           Style="{StaticResource TaskInfoLabelStyle}" />
+                                </StackLayout>
+                                <Frame.GestureRecognizers>
+                                    <DragGestureRecognizer DragStarting="OnDragStarting" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </Frame>
+        <Frame Style="{StaticResource ColumnFrameStyle}" Grid.Column="2">
+            <StackLayout x:Name="DoneColumn" Padding="10">
+                <Label Text="Зроблено" Style="{StaticResource ColumnHeaderLabelStyle}" />
+                <CollectionView ItemsSource="{Binding Items}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Style="{StaticResource TaskFrameStyle}">
+                                <StackLayout>
+                                    <Label Text="{Binding Title}" Style="{StaticResource TaskNameLabelStyle}" />
+                                    <Label Text="{Binding Course}" Style="{StaticResource TaskInfoLabelStyle}" />
+                                    <Label Text="{Binding EndDateTime, StringFormat='Виконано: {0:yyyy-MM-dd}'}" 
+                                           TextColor="Green" 
+                                           Style="{StaticResource TaskInfoLabelStyle}" />
+                                    <Label Text="{Binding Priority}" 
+                                           TextColor="Yellow" 
+                                           Style="{StaticResource TaskInfoLabelStyle}" />
+                                </StackLayout>
+                                <Frame.GestureRecognizers>
+                                    <DragGestureRecognizer DragStarting="OnDragStarting" />
+                                </Frame.GestureRecognizers>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </Frame>
+    </Grid>
+</ContentPage>
+    

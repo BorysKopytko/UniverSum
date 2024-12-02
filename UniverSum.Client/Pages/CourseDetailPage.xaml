@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UniverSum.Client.Pages.CourseDetailPage"
+             xmlns:viewModels="clr-namespace:UniverSum.Client.ViewModels" 
+             Title="Деталі курсу">
+    <ContentPage.BindingContext>
+        <viewModels:CourseDetailViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="HeaderLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Large"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+            <Style x:Key="SectionTitleStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="Margin" Value="0,10,0,5"/>
+            </Style>
+            <Style x:Key="BodyTextStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="Margin" Value="0,10,0,10"/>
+            </Style>
+            <Style x:Key="ChapterButtonStyle" TargetType="Button">
+                <Setter Property="FontSize" Value="Small"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light='LightGray', Dark='Gray'}"/>
+                <Setter Property="TextColor" Value="{AppThemeBinding Light='Black', Dark='White'}"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ScrollView>
+        <StackLayout Padding="20">
+            <Label Text="{Binding Item.Title}" Style="{StaticResource HeaderLabelStyle}"/>
+            <Label Text="{Binding Item.Description}" Style="{StaticResource BodyTextStyle}"/>
+            <Label Text="{x:Static resources:AppStrings.Instructors}" Style="{StaticResource SectionTitleStyle}"/>
+            <CollectionView ItemsSource="{Binding Item.Members}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding}" FontSize="Medium" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Label Text="{x:Static resources:AppStrings.Schedule}" Style="{StaticResource SectionTitleStyle}"/>
+            <CollectionView ItemsSource="{Binding Item.Contents}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding}" FontSize="Medium"/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Label Text="{x:Static resources:AppStrings.Lessons}" Style="{StaticResource SectionTitleStyle}"/>
+            <Grid ColumnDefinitions="*,*">
+                <Label Text="Попереднє заняття:"/>
+                <Label Text="{Binding Item.Contents}"/>
+                <Label Text="Поточне заняття:"/>
+                <Label Text="{Binding Item.Contents}"/>
+                <Label Text="Наступне заняття:"/>
+                <Label Text="{Binding Item.Contents}"/>
+            </Grid>
+            <Label Text="{x:Static resources:AppStrings.LastMessages}" Style="{StaticResource SectionTitleStyle}"/>
+            <CollectionView ItemsSource="{Binding Item.Conversation.Messages}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding}" FontSize="Medium"/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Label Text="{x:Static resources:AppStrings.Chapters}" Style="{StaticResource SectionTitleStyle}"/>
+            <CollectionView ItemsSource="{Binding Item.Contents}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="Gray" CornerRadius="5" Padding="10" Margin="5">
+                            <StackLayout>
+                                <Label Text="{Binding Title}" FontAttributes="Bold"/>
+                                <Label Text="{Binding Description}" FontSize="Small" Margin="0,5,0,10"/>
+                                <Grid ColumnDefinitions="*,*,*" ColumnSpacing="10">
+                                    <Button Text="Матеріали" Style="{StaticResource ChapterButtonStyle}" Command="{Binding LoadContentCommand}"/>
+                                    <Button Text="Завдання" Style="{StaticResource ChapterButtonStyle}" Command="{Binding LoadContentCommand}"/>
+                                    <Button Text="Повідомлення" Style="{StaticResource ChapterButtonStyle}" Command="{Binding LoadContentCommand}"/>
+                                </Grid>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
+    

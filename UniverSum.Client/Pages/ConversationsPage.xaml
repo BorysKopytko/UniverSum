@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UniverSum.Client.Pages.ConversationsPage"
+             xmlns:viewModels="clr-namespace:UniverSum.Client.ViewModels"
+             Title="Розмови">
+    <ContentPage.BindingContext>
+        <viewModels:ConversationsViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="LightTextColor">#000000</Color>
+            <Color x:Key="LightBorderColor">#D3D3D3</Color>
+            <Color x:Key="LightBackgroundColor">#FFFFFF</Color>
+            <Color x:Key="DarkTextColor">#FFFFFF</Color>
+            <Color x:Key="DarkBorderColor">#444444</Color>
+            <Color x:Key="DarkBackgroundColor">#2C2C2C</Color>
+            <Style x:Key="MessageTitleStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="{DynamicResource LightTextColor}" />
+            </Style>
+            <Style x:Key="MessageTextStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="TextColor" Value="{DynamicResource LightTextColor}" />
+            </Style>
+            <Style x:Key="MessageTimeStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="TextColor" Value="#7D7D7D" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ScrollView>
+        <CollectionView ItemsSource="{Binding Conversations}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="{DynamicResource LightBorderColor}"
+                          BackgroundColor="{DynamicResource LightBackgroundColor}"
+                          CornerRadius="8" Padding="10" Margin="10">
+                        <StackLayout>
+                            <Label Text="{Binding ConversationName}" Style="{DynamicResource MessageTitleStyle}" />
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding SenderName}" Style="{DynamicResource MessageTextStyle}" />
+                                <Label Text="{Binding LastMessageText}" Style="{DynamicResource MessageTextStyle}" />
+                            </StackLayout>
+                            <Label Text="{Binding LastMessageTime}" Style="{DynamicResource MessageTimeStyle}" />
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ScrollView>
+</ContentPage>
+    

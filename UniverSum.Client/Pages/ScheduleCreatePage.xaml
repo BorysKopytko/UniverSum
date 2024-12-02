@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UniverSum.Client.Pages.ScheduleCreatePage"
+             xmlns:viewModels="clr-namespace:UniverSum.Client.ViewModels"
+             Title="Створення заняття">
+    <ContentPage.BindingContext>
+        <viewModels:ScheduleCreateViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <Style x:Key="BaseElementStyle" TargetType="View">
+            <Setter Property="WidthRequest" Value="300" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+        </Style>
+        <Style x:Key="EntryStyle" TargetType="Entry" BasedOn="{StaticResource BaseElementStyle}">
+            <Setter Property="HeightRequest" Value="50" />
+        </Style>
+        <Style x:Key="PickerStyle" TargetType="Picker" BasedOn="{StaticResource BaseElementStyle}">
+            <Setter Property="HeightRequest" Value="50" />
+        </Style>
+        <Style x:Key="DatePickerStyle" TargetType="DatePicker" BasedOn="{StaticResource BaseElementStyle}" />
+        <Style x:Key="TimePickerStyle" TargetType="TimePicker" BasedOn="{StaticResource BaseElementStyle}" />
+        <Style x:Key="ButtonStyle" TargetType="Button" BasedOn="{StaticResource BaseElementStyle}">
+            <Setter Property="HeightRequest" Value="50" />
+        </Style>
+        <Style x:Key="BorderStyle" TargetType="Border">
+            <Setter Property="BackgroundColor">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#FFFFFF" Offset="0.0" />
+                        <GradientStop Color="#E0E0E0" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Padding" Value="10" />
+        </Style>
+        <Style x:Key="LabelStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="Arial" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="TextColor" Value="#333333" />
+            <Setter Property="HorizontalTextAlignment" Value="Start" />
+        </Style>
+        <Style x:Key="ButtonStyleWithShadow" TargetType="Button" BasedOn="{StaticResource ButtonStyle}">
+            <Setter Property="BackgroundColor" Value="#4CAF50" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="CornerRadius" Value="20" />
+            <Setter Property="Shadow">
+                <Setter.Value>
+                    <Shadow Brush="Black" Radius="10" Opacity="0.5" Offset="5,5" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Label Text="{x:Static res:Resources.ClassName}" Style="{StaticResource LabelStyle}" />
+            <Border Style="{StaticResource BorderStyle}">
+                <Entry Placeholder="{x:Static res:Resources.EnterClassName}" Style="{StaticResource EntryStyle}" Text="{Binding Title}"/>
+            </Border>
+            <Label Text="{x:Static res:Resources.Date}" Style="{StaticResource LabelStyle}" />
+            <Border Style="{StaticResource BorderStyle}">
+                <DatePicker Style="{StaticResource DatePickerStyle}" Date="{Binding DateTime}"/>
+            </Border>
+            <Label Text="{x:Static res:Resources.Time}" Style="{StaticResource LabelStyle}" />
+            <Border Style="{StaticResource BorderStyle}">
+                <TimePicker Style="{StaticResource TimePickerStyle}" Time="{Binding DateTime}"/>
+            </Border>
+            <Label Text="{x:Static res:Resources.Participants}" Style="{StaticResource LabelStyle}" />
+            <Border Style="{StaticResource BorderStyle}">
+                <Editor Placeholder="{x:Static res:Resources.EnterParticipants}" Style="{StaticResource EntryStyle}" Text="{Binding Profiles}"/>
+            </Border>
+            <Button Text="{x:Static res:Resources.Create}" Style="{StaticResource ButtonStyleWithShadow}" Command="{Binding CreateCommand}"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UniverSum.Client.Pages.SettingsPage"
+             xmlns:viewModels="clr-namespace:UniverSum.Client.ViewModels"
+             Title="Налаштування">
+    <ContentPage.BindingContext>
+        <viewModels:SettingsViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="PageBackgroundColor">#FFFFFF</Color>
+            <Color x:Key="TextColor">#000000</Color>
+            <Color x:Key="BorderColor">#B0B0B0</Color>
+            <Color x:Key="PageBackgroundColor">#1E1E1E</Color>
+            <Color x:Key="TextColor">#FFFFFF</Color>
+            <Color x:Key="BorderColor">#555555</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ScrollView>
+        <VerticalStackLayout Padding="20">
+            <Label Text="Налаштування користувача"
+                   FontSize="24"
+                   HorizontalOptions="Center"
+                   TextColor="{DynamicResource TextColor}" />
+            <Label Text="Оберіть тему:"
+                   TextColor="{DynamicResource TextColor}" />
+            <StackLayout Orientation="Horizontal">
+                <RadioButton Content="Світла" GroupName="Theme" Value="Light" />
+                <RadioButton Content="Темна" GroupName="Theme" Value="Dark" />
+            </StackLayout>
+            <Label Text="Оберіть мову:"
+                   TextColor="{DynamicResource TextColor}" />
+            <StackLayout Orientation="Horizontal">
+                <RadioButton Content="Українська" GroupName="Language" Value="Ukrainian" />
+                <RadioButton Content="English" GroupName="Language" Value="English" />
+            </StackLayout>
+            <Label Text="Відкривати посилання:"
+                   TextColor="{DynamicResource TextColor}" />
+            <StackLayout Orientation="Horizontal">
+                <RadioButton Content="В застосунку" GroupName="Links" Value="InApp" />
+                <RadioButton Content="В браузері" GroupName="Links" Value="InBrowser" />
+            </StackLayout>
+            <Border Stroke="{DynamicResource BorderColor}" StrokeThickness="1" Padding="10">
+                <StackLayout>
+                    <Label Text="Інформація про застосунок"
+                           FontSize="18"
+                           TextColor="{DynamicResource TextColor}" />
+                    <Label Text="Цей застосунок допомагає вам керувати налаштуваннями користувача."
+                           TextColor="{DynamicResource TextColor}" />
+                </StackLayout>
+            </Border>
+            <Border Stroke="{DynamicResource BorderColor}" StrokeThickness="1" Padding="10">
+                <StackLayout>
+                    <Label Text="Залишити відгук"
+                           FontSize="18"
+                           TextColor="{DynamicResource TextColor}" />
+                    <Editor Placeholder="Ваш відгук..." HeightRequest="100" />
+                    <Button Text="Надіслати"
+                            BackgroundColor="#0078D4"
+                            TextColor="White"
+                            HorizontalOptions="Center"
+                            Command="{Binding SendFeedbackCommand}"/>
+                </StackLayout>
+            </Border>
+            <Button Text="Зберегти" Command="{Binding SaveCommand}"></Button>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
+    

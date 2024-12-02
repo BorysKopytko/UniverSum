@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UniverSum.Client.Pages.ScheduleDetailPage"
+             xmlns:viewModels="clr-namespace:UniverSum.Client.ViewModels"
+             Title="Деталі заняття">
+    <ContentPage.BindingContext>
+        <viewModels:ScheduleDetailViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="SectionHeaderStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="Margin" Value="10,5" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LightTextColor}, Dark={StaticResource DarkTextColor}}" />
+            </Style>
+            <Style x:Key="TextStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="Margin" Value="10,5" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource LightTextColor}, Dark={StaticResource DarkTextColor}}" />
+            </Style>
+            <Style x:Key="LinkButtonStyle" TargetType="Button">
+                <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource AccentColor}, Dark={StaticResource AccentColor}}" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="Padding" Value="0" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="10" Spacing="15">
+            <!-- Основна інформація про заняття -->
+            <Label Text="Основна інформація" Style="{StaticResource SectionHeaderStyle}" />
+            <Label Text="{Binding LessonName}" Style="{StaticResource TextStyle}" FontAttributes="Bold" />
+            <Label Text="{Binding LessonType}" Style="{StaticResource TextStyle}" />
+            <Label Text="Аудиторія:" Style="{StaticResource TextStyle}">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="{Binding Audience}" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label Text="Час:" Style="{StaticResource TextStyle}">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="{Binding TimeRange}" />
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Label Text="Додаткова інформація: {Binding ScheduleType}" Style="{StaticResource TextStyle}" />
+
+            <!-- Групи -->
+            <Label Text="Групи" Style="{StaticResource SectionHeaderStyle}" />
+            <CollectionView ItemsSource="{Binding Groups}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding}" Style="{StaticResource TextStyle}" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Матеріали -->
+            <Label Text="Матеріали" Style="{StaticResource SectionHeaderStyle}" />
+            <CollectionView ItemsSource="{Binding Materials}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Button Text="{Binding Title}" Style="{StaticResource LinkButtonStyle}" Command="{Binding BindingContext.OpenMaterialCommand, Source={RelativeSource AncestorType={x:Type ContentPage}}}" CommandParameter="{Binding Url}" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Завдання -->
+            <Label Text="Завдання" Style="{StaticResource SectionHeaderStyle}" />
+            <Label Text="Поточне заняття:" Style="{StaticResource TextStyle}" FontAttributes="Bold" />
+            <Label Text="{Binding CurrentAssignment}" Style="{StaticResource TextStyle}" />
+            <Label Text="Наступне заняття:" Style="{StaticResource TextStyle}" FontAttributes="Bold" />
+            <Label Text="{Binding NextAssignment}" Style="{StaticResource TextStyle}" />
+
+            <!-- Посилання -->
+            <Label Text="Посилання" Style="{StaticResource SectionHeaderStyle}" />
+            <CollectionView ItemsSource="{Binding Links}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Button Text="{Binding Description}" Style="{StaticResource LinkButtonStyle}" Command="{Binding BindingContext.OpenLinkCommand, Source={RelativeSource AncestorType={x:Type ContentPage}}}" CommandParameter="{Binding Url}" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

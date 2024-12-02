@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="UniverSum.Client.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:UniverSum.Client"
+    xmlns:pages="clr-namespace:UniverSum.Client.Pages"
+    xmlns:mi="http://www.aathifmahir.com/dotnet/2022/maui/icons"
+    Shell.FlyoutBehavior="Flyout"
+    Title="Львівський національний університет імені Івана Франка - UniverSum">
+    <Shell.FlyoutHeader>
+        <Image 
+            Source="university_logo.png" />
+    </Shell.FlyoutHeader>
+    <FlyoutItem 
+        Title="Розклад"
+        Icon="{mi:Fluent Icon=CalendarLtr24}"
+        Route="SchedulesPage">
+        <ShellContent 
+            Title="Сьогодні"
+            Icon="{mi:Fluent Icon=CalendarToday24}" 
+            ContentTemplate="{DataTemplate pages:SchedulesPage}"/>
+        <ShellContent 
+            Title="Завтра"
+            Icon="{mi:Fluent Icon=Calendar3Day24}"
+            ContentTemplate="{DataTemplate pages:SchedulesPage}" />
+        <ShellContent 
+            Title="Цей тиждень"
+            Icon="{mi:Fluent Icon=CalendarWeekStart24}"
+            ContentTemplate="{DataTemplate pages:SchedulesPage}" />
+        <ShellContent 
+            Title="Наступний тиждень"
+            Icon="{mi:Fluent Icon=CalendarReply24}"
+            ContentTemplate="{DataTemplate pages:SchedulesPage}" />
+    </FlyoutItem>
+    <ShellContent 
+        Title="Завдання"
+        Icon="{mi:Fluent Icon=TasksApp24}"
+        ContentTemplate="{DataTemplate pages:TasksPage}" />
+    <FlyoutItem 
+        Title="Курси"
+        Icon="{mi:Fluent Icon=Library24}">
+        <ShellContent 
+            Title="Усі"
+            Icon="{mi:Fluent Icon=Database24}" 
+            ContentTemplate="{DataTemplate pages:CoursesPage}" />
+        <ShellContent 
+            Title="Обов'язкові"
+            Icon="{mi:Fluent Icon=ClipboardCheckmark24}"
+            ContentTemplate="{DataTemplate pages:CoursesPage}" />
+        <ShellContent 
+            Title="Факультетські ДВВС"
+            Icon="{mi:Fluent Icon=Folder24}"
+            ContentTemplate="{DataTemplate pages:CoursesPage}" />
+        <ShellContent 
+            Title="Університетські ДВВС"
+            Icon="{mi:Fluent Icon=BuildingBank24}"
+            ContentTemplate="{DataTemplate pages:CoursesPage}" />
+    </FlyoutItem>
+    <FlyoutItem 
+        Title="Посилання"
+        Icon="{mi:Fluent Icon=FolderLink24}">
+        <ShellContent 
+            Title="Улюблені"
+            Icon="{mi:Fluent Icon=ClipboardLink24}"
+            ContentTemplate="{DataTemplate pages:LinksPage}" />
+        <ShellContent 
+            Title="Усі"
+            Icon="{mi:Fluent Icon=DatabaseLink24}"
+            ContentTemplate="{DataTemplate pages:LinksPage}" />
+        <ShellContent 
+            Title="Факультетські"
+            Icon="{mi:Fluent Icon=FolderLink24}"
+            ContentTemplate="{DataTemplate pages:LinksPage}" />
+        <ShellContent 
+            Title="Університетські"
+            Icon="{mi:Fluent Icon=BuildingBankLink24}"
+            ContentTemplate="{DataTemplate pages:LinksPage}" />
+    </FlyoutItem>
+    <ShellContent 
+        Title="Розмови"
+        Icon="{mi:Fluent Icon=MailMultiple24}"
+        ContentTemplate="{DataTemplate pages:ConversationsPage}" />
+    <ShellContent 
+        Title="Налаштування"
+        Icon="{mi:Fluent Icon=Settings24}"
+        ContentTemplate="{DataTemplate pages:SettingsPage}" />
+    <Shell.FlyoutFooter>
+        <Label 
+            Text="© 2024 Борис Копитко" />
+    </Shell.FlyoutFooter>
+</Shell>

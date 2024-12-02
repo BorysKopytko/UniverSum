@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:UniverSum.Client.ViewModels"
+             x:Class="UniverSum.Client.Pages.RegistrationPage"
+             Title="Реєстрація">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="PageBackgroundColor">#FFFFFF</Color>
+            <Color x:Key="TextColor">#000000</Color>
+            <Color x:Key="ButtonBackgroundColor">#0078D4</Color>
+            <Color x:Key="ButtonTextColor">#FFFFFF</Color>
+            <Color x:Key="EntryBackgroundColor">#F0F0F0</Color>
+            <Color x:Key="EntryTextColor">#000000</Color>
+            <Color x:Key="PickerBackgroundColor">#F0F0F0</Color>
+            <Color x:Key="PickerTextColor">#000000</Color>
+            <Color x:Key="PageBackgroundColor">#1E1E1E</Color>
+            <Color x:Key="TextColor">#FFFFFF</Color>
+            <Color x:Key="ButtonBackgroundColor">#0078D4</Color>
+            <Color x:Key="ButtonTextColor">#FFFFFF</Color>
+            <Color x:Key="EntryBackgroundColor">#3A3A3A</Color>
+            <Color x:Key="EntryTextColor">#FFFFFF</Color>
+            <Color x:Key="PickerBackgroundColor">#3A3A3A</Color>
+            <Color x:Key="PickerTextColor">#FFFFFF</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15" BackgroundColor="{DynamicResource PageBackgroundColor}">
+            <Entry x:Name="EmailEntry" 
+                   Placeholder="Введіть електронну пошту"
+                   TextColor="{DynamicResource EntryTextColor}"
+                   BackgroundColor="{DynamicResource EntryBackgroundColor}"
+                   HorizontalOptions="FillAndExpand"/>
+            <Entry x:Name="PasswordEntry" 
+                   Placeholder="Введіть пароль" 
+                   IsPassword="True"
+                   TextColor="{DynamicResource EntryTextColor}"
+                   BackgroundColor="{DynamicResource EntryBackgroundColor}"
+                   HorizontalOptions="FillAndExpand"/>
+            <Entry x:Name="LastNameEntry" 
+                   Placeholder="Призвище"
+                   TextColor="{DynamicResource EntryTextColor}"
+                   BackgroundColor="{DynamicResource EntryBackgroundColor}"
+                   HorizontalOptions="FillAndExpand"/>
+            <Entry x:Name="FirstNameEntry" 
+                   Placeholder="Ім'я"
+                   TextColor="{DynamicResource EntryTextColor}"
+                   BackgroundColor="{DynamicResource EntryBackgroundColor}"
+                   HorizontalOptions="FillAndExpand"/>
+            <Entry x:Name="MiddleNameEntry" 
+                   Placeholder="По батькові"
+                   TextColor="{DynamicResource EntryTextColor}"
+                   BackgroundColor="{DynamicResource EntryBackgroundColor}"
+                   HorizontalOptions="FillAndExpand"/>
+            <Picker x:Name="FacultyPicker"
+                    SelectedIndexChanged="FacultyPicker_SelectedIndexChanged"
+                    BackgroundColor="{DynamicResource PickerBackgroundColor}"
+                    TextColor="{DynamicResource PickerTextColor}"
+                    HorizontalOptions="FillAndExpand"/>
+            <Picker x:Name="EducationLevelPicker"
+                    SelectedIndexChanged="EducationLevelPicker_SelectedIndexChanged"
+                    BackgroundColor="{DynamicResource PickerBackgroundColor}"
+                    TextColor="{DynamicResource PickerTextColor}"
+                    HorizontalOptions="FillAndExpand"/>
+            <Picker x:Name="SpecialityPicker"
+                    SelectedIndexChanged="SpecialityPicker_SelectedIndexChanged"
+                    BackgroundColor="{DynamicResource PickerBackgroundColor}"
+                    TextColor="{DynamicResource PickerTextColor}"
+                    HorizontalOptions="FillAndExpand"/>
+            <Picker x:Name="SpecialityCoursePicker"
+                    SelectedIndexChanged="SpecialityCoursePicker_SelectedIndexChanged"
+                    BackgroundColor="{DynamicResource PickerBackgroundColor}"
+                    TextColor="{DynamicResource PickerTextColor}"
+                    HorizontalOptions="FillAndExpand"/>
+            <Picker x:Name="StreamPicker"
+                    SelectedIndexChanged="StreamPicker_SelectedIndexChanged"
+                    BackgroundColor="{DynamicResource PickerBackgroundColor}"
+                    TextColor="{DynamicResource PickerTextColor}"
+                    HorizontalOptions="FillAndExpand"/>
+            <Picker x:Name="GroupPicker"
+                    BackgroundColor="{DynamicResource PickerBackgroundColor}"
+                    TextColor="{DynamicResource PickerTextColor}"
+                    HorizontalOptions="FillAndExpand"/>
+            <Button Text="Зареєструватись" 
+                    Clicked="RegistrationButton_Clicked"
+                    BackgroundColor="{DynamicResource ButtonBackgroundColor}"
+                    TextColor="{DynamicResource ButtonTextColor}"
+                    Padding="10"
+                    HorizontalOptions="FillAndExpand"
+                    CornerRadius="5"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
+    
